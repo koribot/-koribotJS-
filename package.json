@@ -1,0 +1,23 @@
+{
+  "name": "korijs",
+  "version": "0.0.0",
+  "description": "simple web framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-http": "http-server -c-1",
+    "dev-parcel": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "parcel-bundler": "^1.12.3",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "parcel": "^2.0.0-nightly.1469"
+  }
+}
