@@ -30,10 +30,10 @@
   ```
 - implement, didMount, didUnmount (current implementaion is rerendering the root, childs(components) also rerenders)
 - Optimize processHTML()
-```
+``
 Current implementation does not parse the string, instead putting it to a `temporaryContainer`'s `innerHTML`,
 then pass it to `processNode` to transform `DOM` `<div>Hello</div>`  to `virtualDom` `{tagName:div, {attribs:{}, children:['Hello']}}`
-```
+``
 
 
 
