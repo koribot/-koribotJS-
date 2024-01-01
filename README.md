@@ -18,25 +18,32 @@
 
 
 #### To-dos
-> optimize diffing
-> optimize rerendering
-> optimize state management
-> optimize routing
+> Optimize diffing
+> Optimize rerendering
+> Optimize state management
+> Optimize routing
 > add more event listeners
-  > format
-  ```
+  
+  ```  
     if-click --> click
     if-change --> input
   ```
 > implement, didMount, didUnmount (current implementaion is rerendering the root, childs(components) also rerenders)
+> Optimize processHTML()
+```text
+Current implementation does not parse the string, instead putting it to a `temporaryContainer`'s `innerHTML`,
+then pass it to `processNode` to transform `DOM` `<div>Hello</div>`  to `virtualDom` `{tagName:div, {attribs:{}, children:['Hello']}}`
+```
 
 
 
 
 ##### Credits
-Current diffing used in koribotJS
-[Link Text](https://github.com/ycmjason-talks/2018-11-21-manc-web-meetup-4/blob/master/src/vdom/diff.js)
+- Thank you :sparkles: ycmjason [Link Text](https://github.com/ycmjason-talks/2018-11-21-manc-web-meetup-4/blob/master/src/vdom/diff.js)
+```
+Current diffing(), render() implementaion in koribotJS
 
+```
 
 
 ##### Notes
