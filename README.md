@@ -30,10 +30,15 @@
   ```
 - implement, didMount, didUnmount (current implementaion is rerendering the root, childs(components) also rerenders)
 - Optimize processHTML()
-``
-Current implementation does not parse the string, instead putting it to a `temporaryContainer`'s `innerHTML`,
-then pass it to `processNode` to transform `DOM` `<div>Hello</div>`  to `virtualDom` `{tagName:div, {attribs:{}, children:['Hello']}}`
-``
+
+Current implementation does not parse the string directly. Instead, it is placed in a `temporaryContainer`'s `innerHTML`. Subsequently, it is passed to the `processNode` function, which transforms the `DOM` structure `<div>Hello</div>` into a `virtualDom` representation:
+
+```json
+{
+  "tagName": "div",
+  "attribs": {},
+  "children": ["Hello"]
+}
 
 
 
