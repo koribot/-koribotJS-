@@ -55,13 +55,20 @@ function processNode(node) {
 
 export default function processHTML(html) {
 
- const tempContainer = document.createElement('div')
- tempContainer.innerHTML = formatHTML(html)
 
- if (tempContainer) {
-  const vDom = processNode(tempContainer.firstElementChild);
+ const parser = new DOMParser();
+ const document = parser.parseFromString(html, "text/html")
+
+ /**
+  * Old implementation - Appending to temporary HTML
+  * const tempContainer = document.createElement('div')
+  * tempContainer.innerHTML = formatHTML(html)
+  */
+
+ if (document) {
+  const vDom = processNode(document.body.firstChild);
   if (vDom !== null) {
-   tempContainer.innerHTML = ''
+   document.documentElement.innerHTML = ''
   }
   return vDom
  }
