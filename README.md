@@ -44,7 +44,7 @@ Current implementation does not parse the string directly. Instead, it is placed
 
 
 ##### Credits
-- Thank you :sparkles: ycmjason [Link Text](https://github.com/ycmjason-talks/2018-11-21-manc-web-meetup-4/blob/master/src/vdom/diff.js)
+- Thank you :sparkles: [@ycmjason](https://github.com/ycmjason-talks/2018-11-21-manc-web-meetup-4/blob/master/src/vdom/diff.js)
 ```
 Current diffing(), render() implementaion in koribotJS
 
