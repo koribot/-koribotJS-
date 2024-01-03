@@ -3,7 +3,7 @@ import mount from './Kori/mount.js';
 import diff from './Kori/diff.js';
 import processHTML from './Kori/processHTML.js';
 import Kori, { router } from './Kori/Kori.js';
-import routes from './../routes.js';
+import routes from './routes.js';
 
 import app from './app.js';
 

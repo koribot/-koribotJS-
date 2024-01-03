@@ -1,9 +1,10 @@
-import app from "./src/app.js"
-import componentA from "./src/componenta.js"
+import app from "./app.js"
+import componentA from "./componenta.js"
 
 
 export const routes = () => {
  const currentLocation = window.location.pathname
+ console.log(currentLocation)
  const routes = {
   "/": app,
   "/componenta": componentA

@@ -1,10 +1,10 @@
 import { setScript, setState, states } from "./Kori/Kori.js";
 
-async function getData() {
-   const response = await fetch('https://ebextractor-v1.vercel.app/api/extract/using_keyword?q=slippers');
-   const data = await response.json();
-   return data;
-}
+// async function getData() {
+//    const response = await fetch('https://ebextractor-v1.vercel.app/api/extract/using_keyword?q=slippers');
+//    const data = await response.json();
+//    return data;
+// }
 
 
 //initialize the states
@@ -12,9 +12,10 @@ setState('componentA', {
    arr: [1, 2, 3, 4, 5, 6],
    b: 1,
    inputValue: '',
-   z: (async () => {
-      return await getData()
-   })()
+   // z: (async () => {
+   //    return await getData()
+   // })()
+   z: 5
 })
 
 
@@ -55,7 +56,6 @@ setScript('componentA', {
 
 
 export const componentA = () => {
-   console.log('mounted')
    return `<div cName='aw'>
              <div class='flex p-[50px] items-center flex-col justify-center gap-[50px] bg-gray-300'>
               <h1>
