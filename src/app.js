@@ -1,3 +1,5 @@
+import componentA from "./componenta.js";
+import insert from "./Kori/insert.js";
 import Kori, { setScript, setState, states } from "./Kori/Kori.js";
 
 
@@ -16,6 +18,7 @@ setState('mainApp', {
   b: 1,
   inputValue: '',
   countDown: typeof (count()) !== 'number' ? count() : new Date()
+  // countDown: 5
 })
 
 
@@ -39,6 +42,7 @@ setScript('mainApp', {
 
 
   handleChange: (e) => {
+    console.log(e.target.value)
     setState('mainApp', {
       inputValue: e.target.value
     })
@@ -48,7 +52,7 @@ setScript('mainApp', {
 
 
 export const app = (count) => {
-  return `<div cName='aw' class='aw'>
+  return `<div id='awe' cName='aw' class='aw'>
             <div class='bg-[gray] p-[50px] text-center text-white font-bold text-lg'>
             ${states.mainApp.countDown}
                  <h1>Welcome to Korijs ${states.mainApp.b}</h1>
@@ -83,7 +87,8 @@ export const app = (count) => {
                          Add
                          </button>
                         </div>
-                        ${states.mainApp.inputValue}
+                        ${insert(states.mainApp.inputValue)}     
+
                     <div class='flex justify-center'>
                   ${states.mainApp.arr.map((item) => {
     return `<p>${item}</p>`

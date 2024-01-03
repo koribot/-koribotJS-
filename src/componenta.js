@@ -55,13 +55,30 @@ setScript('componentA', {
 
 
 export const componentA = () => {
-   return `<div cName='aw' class='aw'>
-             Welcome to Component A
-             ${states.componentA.b}
-             <div>
-             <button if-click='componentA-handleClick2'>Decrease</button>
-             <button if-click='componentA-handleClick'>Increase</button>
-             <a href='/'>Go to Home</a>
+   console.log('mounted')
+   return `<div cName='aw'>
+             <div class='flex p-[50px] items-center flex-col justify-center gap-[50px] bg-gray-300'>
+              <h1>
+                Welcome to Component A
+              </h1>
+              <h2> ${states.componentA.b}</h2>
+             </div>
+             <div class='flex flex-col items-center justify-center mt-5 gap-5'>
+               <div class='flex gap-5'>
+                  <button if-click='componentA-handleClick'
+                  class='bg-gray-500 rounded-md p-2'
+                  >
+                  Increase
+                  </button>
+                  <button if-click='componentA-handleClick2'
+                  class='bg-gray-500 rounded-md p-2'
+                  >
+                  Decrease
+                  </button>
+               </div>
+               <div>
+                  <a href='/'>Go to Home</a>
+               </div>
              </div>
           </div>
 `

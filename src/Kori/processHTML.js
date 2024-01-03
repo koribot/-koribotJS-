@@ -27,7 +27,6 @@ function formatHTML(DOM_STRING_REPRESENTATION) {
 
 
 function processNode(node) {
- // console.log(node)
 
  if (node.nodeType === Node.ELEMENT_NODE) {
   const vDOM = {
@@ -47,6 +46,8 @@ function processNode(node) {
  } else if (node.nodeType === Node.TEXT_NODE) {
   return node.nodeValue.trim();
  }
+
+
  return null;
 }
 
@@ -55,6 +56,18 @@ function processNode(node) {
 
 export default function processHTML(html) {
 
+ for (let index = 0; index < html.length; index++) {
+  let char = html[index];
+  // console.log(char)
+  // if (char === '{') {
+  //  while (char !== '}') {
+  //   const current = html[index + 1]
+  //   char = current
+  //   console.log(current)
+  //  }
+  //  console.log(char)
+  // }
+ }
 
  const parser = new DOMParser();
  const document = parser.parseFromString(html, "text/html")
@@ -65,11 +78,15 @@ export default function processHTML(html) {
   * tempContainer.innerHTML = formatHTML(html)
   */
 
- if (document) {
+ if (document !== null) {
+  // setTimeout(() => {
+  //  // console.log(document)
+  // }, 5000);
   const vDom = processNode(document.body.firstChild);
   if (vDom !== null) {
    document.documentElement.innerHTML = ''
   }
+  // console.log(vDom)
   return vDom
  }
 
