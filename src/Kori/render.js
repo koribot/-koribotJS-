@@ -38,13 +38,34 @@ function render_element({ tagName, attribs, children }) {
         }
         if (key === 'href') {
           element.addEventListener('click', (event) => {
+
             const hrefValue = element.getAttribute('href');
             if (hrefValue) {
-              router(event, hrefValue)
+              event.preventDefault(); // Prevent the default behavior of the link
+
+              if (hrefValue.split("-")[0] === 'prevReload' && hrefValue.split("-")[1].length > 0) {
+                if (event.target.target === '_blank') {
+                  window.open(hrefValue.split('-')[1], "_blank");
+                } else {
+
+                  window.location.assign(hrefValue.split('-')[1]);
+                }
+              } else {
+
+                router(event, hrefValue)
+              }
             }
           })
         }
-
+        if (key === 'if-focus') {
+          element.addEventListener('focus', Kori.scripts[value.split('-')[0]][value.split('-')[1]])
+        }
+        if (key === 'if-blur') {
+          element.addEventListener('blur', Kori.scripts[value.split('-')[0]][value.split('-')[1]])
+        }
+        if (key === 'if-submit') {
+          element.addEventListener('submit', Kori.scripts[value.split('-')[0]][value.split('-')[1]])
+        }
 
 
         element.setAttribute(key, value)
