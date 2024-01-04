@@ -28,13 +28,18 @@ export const Kori = (() => {
   const visitedPaths = new Set();
 
   function router(event, path) {
-    event.preventDefault();
+    if (event) event.preventDefault();
     if (path !== window.location.pathname) {
       visitedPaths.add(path);
       window.history.pushState({ path: path }, null, path);
       Kori.track.start()
     }
     // navigateTo(path);
+  }
+
+
+  function navigate() {
+
   }
 
   // function navigateTo(path) {

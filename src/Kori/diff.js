@@ -51,6 +51,10 @@ const diffChildren = (oldVChildren, newVChildren) => {
 
   return $parent => {
     for (const [patch, child] of zip(childPatches, $parent.childNodes)) {
+
+      if (typeof patch === 'undefined') {
+        return undefined
+      }
       patch(child);
     }
 
@@ -65,7 +69,9 @@ const diffChildren = (oldVChildren, newVChildren) => {
 const diff = (vOldNode, vNewNode) => {
   if (vNewNode === undefined) {
     return $node => {
-      $node.remove();
+      if ($node !== undefined) {
+        $node.remove();
+      }
       return undefined;
     };
   }

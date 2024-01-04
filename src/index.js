@@ -20,12 +20,13 @@ let $rootEl = mount(realApp, document.getElementById('kori-root')); // Mount the
 
 
 // Acts as a renderer of the virtualApp when state changes, this is triggred everytime you use setState function or using router
-Kori.track.start = () => {
-  const vNewApp = createVirtualApp();
-  const patch = diff(virtualApp, vNewApp);
-  $rootEl = patch($rootEl);
+Kori.track.start = async () => {
+  const vNewApp = await createVirtualApp();
+  const patch = diff(await virtualApp, await vNewApp);
+  $rootEl = await patch($rootEl);
   virtualApp = vNewApp;
 }
+
 
 
 
