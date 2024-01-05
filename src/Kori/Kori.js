@@ -38,7 +38,7 @@ export const Kori = (() => {
       if (absolutePath.charAt(0) !== "/") {
         window.history.pushState(null, null, "/" + path);
       } else {
-        window.history.pushState(null, null, "/" + path);
+        window.history.pushState(null, null, path);
       }
 
 
