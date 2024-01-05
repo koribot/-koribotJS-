@@ -28,10 +28,20 @@ export const Kori = (() => {
   const visitedPaths = new Set();
 
   function router(event, path) {
+    let absolutePath = path
+
+
     if (event) event.preventDefault();
+
     if (path !== window.location.pathname) {
       visitedPaths.add(path);
-      window.history.pushState({ path: path }, null, path);
+      if (absolutePath.charAt(0) !== "/") {
+        window.history.pushState(null, null, "/" + path);
+      } else {
+        window.history.pushState(null, null, "/" + path);
+      }
+
+
       Kori.track.start()
     }
     // navigateTo(path);
