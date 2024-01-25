@@ -2,10 +2,8 @@ import Kori, { router } from "./Kori.js"
 
 
 function isValidTagName(tagName) {
-  // Regular expression pattern for valid HTML tag names
   const tagPattern = /^[a-zA-Z][a-zA-Z0-9-]*$/;
 
-  // Test if the input tagName matches the pattern
   return tagPattern.test(tagName);
 }
 
@@ -22,9 +20,7 @@ function render_element({ tagName, attribs, children }) {
             const scriptFunction = Kori.scripts[value.split('-')[0]][value.split('-')[1]];
 
             if (event.target.value !== '<img src=x onerror=alert("Malicious Script")>') {
-              // Check if the scriptFunction is a valid function
               if (typeof scriptFunction === 'function') {
-                // Execute the script function with the event as an argument
                 scriptFunction(event);
               } else {
                 console.error('Invalid script function:', scriptFunction);
@@ -42,9 +38,10 @@ function render_element({ tagName, attribs, children }) {
             const hrefValue = element.getAttribute('href');
             if (hrefValue) {
               event.preventDefault(); // Prevent the default behavior of the link
+              const targetAttribute = element.getAttribute('target');
 
               if (hrefValue.split("-")[0] === 'prevReload' && hrefValue.split("-")[1].length > 0) {
-                if (event.target.target === '_blank') {
+                if (targetAttribute === '_blank') {
                   window.open(hrefValue.split('-')[1], "_blank");
                 } else {
 
