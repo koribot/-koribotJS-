@@ -41,7 +41,6 @@ function render_element({ tagName, attribs, children }) {
               const targetAttribute = element.getAttribute('target');
               const hyphenIndex = hrefValue.indexOf('-');
               const splitHref = [hrefValue.substring(0, hyphenIndex), hrefValue.substring(hyphenIndex + 1)]
-              console.log(splitHref)
               if (splitHref[0] === 'prevReload' && splitHref[1].length > 0) {
                 if (targetAttribute === '_blank') {
                   window.open(splitHref[1], "_blank");
