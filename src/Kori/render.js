@@ -39,13 +39,15 @@ function render_element({ tagName, attribs, children }) {
             if (hrefValue) {
               event.preventDefault(); // Prevent the default behavior of the link
               const targetAttribute = element.getAttribute('target');
-
-              if (hrefValue.split("-")[0] === 'prevReload' && hrefValue.split("-")[1].length > 0) {
+              const hyphenIndex = hrefValue.indexOf('-');
+              const splitHref = [hrefValue.substring(0, hyphenIndex), hrefValue.substring(hyphenIndex + 1)]
+              console.log(splitHref)
+              if (splitHref[0] === 'prevReload' && splitHref[1].length > 0) {
                 if (targetAttribute === '_blank') {
-                  window.open(hrefValue.split('-')[1], "_blank");
+                  window.open(splitHref[1], "_blank");
                 } else {
 
-                  window.location.assign(hrefValue.split('-')[1]);
+                  window.location.assign(splitHref[1]);
                 }
               } else {
 
